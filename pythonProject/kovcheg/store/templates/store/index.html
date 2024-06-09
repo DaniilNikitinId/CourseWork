@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+
+{% block posts %}
+{% for post in posts %}
+
+<div class="col" style="min-width:200px;">
+    <a href="{{ post.get_absolute_url }}" class="link-offset-2 link-underline link-underline-opacity-0"
+       style="height: 100%">
+        <p class="pb-2"></p>
+        <div class="card h-100" style="">
+            <p class="pb-2"></p>
+            {% if post.photo %}
+            <div class="text-center px-2" style="height:220px; align-self:center;">
+                <img style="width:100%; height:100%; object-fit: cover;" src="{{post.photo.url}}" class="card-img-top ">
+            </div>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title roboto-bold" style="font-size: 15px;">{{post.title|truncatechars:50}}</h5>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block dolmat %}
+<div class="text-center " style="padding-top: 0px; padding-bottom: 60px;">
+    <span class="roboto-medium border-top border-danger border-4" style="color:rgb(220, 53, 69); font-size:5vw ">ЗООМАГАЗИН</span>
+    <span> <img src="/media/photo/paw3.png" style=" position: relative; bottom:23px;height: 5vw; "> </span>
+    <span class="roboto-medium border-top border-dark border-4" style="font-size:5vw">ВЕТКАБИНЕТ</span>
+</div>
+<div class="row text-center" style=" margin: 0px;">
+    <div class="container-fluid col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
+
+        <img style="height: 33vw;padding-left: 20px;" src="/media/photo/dolmat-main.png">
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 col-xl-8 col-xxl-8">
+        <div class="" style="font-size:90px;">
+            <span class="border-bottom border-5 border-danger roboto-medium" style="">КОВЧЕГ</span>
+        </div>
+
+    </div>
+    <div class="roboto-medium" style="font-size: 6vw;">10:00 - 20:00 | ВС - ВЫХОДНОЙ</div>
+</div>
+
+
+{% endblock %}
+
+{% block banner %}
+
+<div class=""
+     style="height:200px; margin-bottom: 50px;  background-image: url('https://cdn.bitrix24.site/bitrix/images/landing/blocks/1.jpg');"
+     class="container-fluid">
+    <div class="roboto-black pt-4" style="font-size: 40px;">Зоомагазин Ковчег</div>
+    <div class="roboto-medium ps-7" style="font-size: 30px;">Лучшие цены</div>
+    <div class="ml-5 roboto-regular-italic pe-3 " style="text-align:right; font-size: 30px;">Весовой корм</div>
+</div>
+{% endblock %}
+
+{% block variableProduct %}
+<div class="roboto-medium" style="font-size: 30px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">
+    Популярные категории
+</div>
+<div class="container-fluid d-flex justify-content-center py-2">
+    <div class="row px-2   text-center ">
+        <div class="col d-flex align-items-center justify-content-center" style="">
+            <div class=" roboto-medium"
+                 style="position: absolute; z-index:1; color: white;pointer-events: none;font-size: 30px; letter-spacing: 1px;">
+                Собаки
+            </div>
+            <a href="{% url 'dogs'%}">
+                <div class="text-center hover-image-scale rounded-3"
+                     style="width: 200px; height: 200px; align-self:center;">
+                    <img style="width:100%; height:100%; object-fit: cover;  filter: brightness(70%);"
+                         src="/media/photo/dog2.jpg"
+                         class="card-img-top hover-image-scale">
+                </div>
+            </a>
+        </div>
+
+        <div class="col d-flex align-items-center justify-content-center" style="">
+            <div class=" roboto-medium"
+                 style="position: absolute; z-index:1; color: white;pointer-events: none;font-size: 30px; letter-spacing: 1px;">
+                В разработке
+            </div>
+            <a href="#">
+                <div class="text-center hover-image-scale rounded-3"
+                     style="width: 200px; height: 200px; align-self:center;">
+                    <img style="width:100%; height:100%; object-fit: cover;  filter: brightness(70%);"
+                         src="/media/photo/cat2.jpg"
+                         class="card-img-top hover-image-scale">
+                </div>
+            </a>
+        </div>
+
+        <div class="col d-flex align-items-center justify-content-center" style="">
+            <div class=" roboto-medium"
+                 style="position: absolute; z-index:1; color: white;pointer-events: none;font-size: 30px; letter-spacing: 1px;">
+                В разработке
+            </div>
+            <a href="#">
+                <div class="text-center hover-image-scale rounded-3"
+                     style="width: 200px; height: 200px; align-self:center;">
+                    <img style="width:100%; height:100%; object-fit: cover;  filter: brightness(70%);"
+                         src="/media/photo/parrot.jpg"
+                         class="card-img-top hover-image-scale">
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
+
+{% block variable %}
+<div class="roboto-medium" style="font-size: 30px; padding-left: 20px; padding-top: 20px; padding-bottom: 20px;">
+    Ветеринарные корма
+</div>
+<div class="row align-items-center " style=" margin: 0px;">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 text-center" style="padding-left: 20px;">
+        <img src="/media/photo/mobility.jpg" style="min-height:400px; height: 30vw;">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8 text-left ph-1">
+        <div class="roboto-light " style="font-size: 30px; padding-left: 15px;">Ветеринарный корм — это
+            специализированный корм
+            для домашних
+            животных, который
+            разрабатывается с учетом медицинских потребностей и особенностей здоровья животного.
+        </div>
+    </div>
+
+<div class="owl-carousel text-center" id="carousel1" style="padding-top: 20px;">
+    {% for post in posts %}
+    <div class="item">
+        <a href="{{ post.get_absolute_url }}" class="link-offset-2 link-underline link-underline-opacity-0"
+           style="height: 100%">
+            <p class="pb-2"></p>
+            <div class="card h-100" style="">
+                {% if post.photo %}
+                <div class="text-center px-2" style="height:200px; align-self:center;">
+                    <img style="width:100%; height:100%; object-fit: cover;" src="{{post.photo.url}}"
+                         class="card-img-top ">
+                </div>
+                {% endif %}
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="roboto-medium" style="font-size: 30px; padding-left: 20px; padding-top: 30px; padding-bottom: 20px;">
+    Для щенков и котят
+</div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 text-center" style="padding-left: 20px;">
+    <img src="/media/photo/PP%20puppie.png" style="min-height:300px; height: 30vw;">
+</div>
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8 text-left ph-1">
+    <div class="roboto-light " style="font-size: 30px; padding-left: 15px;">
+        Корма для щенков и котят специально разработаны для удовлетворения их уникальных потребностей в питательных веществах, поддерживающих их быстрый рост и развитие.
+        <ul>
+            <li>Увеличенный уровень витаминов</li>
+            <li>Маленькие и мягкие гранулы</li>
+        </ul>
+    </div>
+</div>
+
+<div class="owl-carousel text-center" id="carousel2" style="padding-top: 20px;">
+    {% for puppie in puppies %}
+    <div class="item">
+        <a href="{{ puppie.get_absolute_url }}" class="link-offset-2 link-underline link-underline-opacity-0"
+           style="height: 100%">
+            <p class="pb-2"></p>
+            <div class="card h-100" style="">
+                {% if puppie.photo %}
+                <div class="text-center px-2" style="height:200px; align-self:center;">
+                    <img style="width:100%; height:100%; object-fit: cover;" src="{{puppie.photo.url}}"
+                         class="card-img-top ">
+                </div>
+                {% endif %}
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        initializeOwlCarousels();
+    });
+
+    function initializeOwlCarousels() {
+        var owl1 = document.querySelector('#carousel1');
+        $(owl1).owlCarousel({
+            loop: true,
+            margin: 10,
+            responsive: {
+                0: { items: 2 },
+                600: { items: 3 },
+                1000: { items: 5 }
+            }
+        });
+
+        var owl2 = document.querySelector('#carousel2');
+        $(owl2).owlCarousel({
+            loop: true,
+            margin: 10,
+            responsive: {
+                0: { items: 2 },
+                600: { items: 3 },
+                1000: { items: 5 }
+            }
+        });
+    }
+
+    // Инициализация при возвращении на страницу
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            initializeOwlCarousels();
+        }
+    });
+</script>
+
+
+
+
+</div>
+{% endblock %}
+

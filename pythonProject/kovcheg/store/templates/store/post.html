@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+<form>
+    <div class="pt-2">
+        <div class="text-center pe-5"><h4 class="text-center roboto-bold"> {{post.title}} </h4></div>
+        <div class="row g-0 px-3 pt-2 ">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                {% if post.photo %}
+                <div class="text-center px-5" style=" align-self:center;">
+                    <img style="max-width:450px; max-height:450px;  width:100%; height:100%; object-fit: cover;"
+                         src="{{post.photo.url}}" class="card-img-top ">
+                </div>
+                {%endif%}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5  pl-1">
+                <div class="pt-2  my-a-left">
+                    {%if post.article %}
+                    <p class="pt-2 border-bottom border-1">Код товара: {{post.article}}</p>
+                    {% endif %}
+                    {%if post.brand %}
+                    <p class="border-bottom border-1">Производитель: {{post.brand}}</p>
+                    {% endif %}
+                    {%if post.taste %}
+                    <p class="border-bottom border-1">Вкус: {{post.taste}}</p>
+                    {% endif %}
+                    {%if post.weight %}
+                    <p class="border-bottom border-1">Вес: {{post.weight}}кг</p>
+                    {% endif %}
+                    {%if post.typeFeed %}
+                    <p class="border-bottom border-1">Вид корма: {{post.typeFeed}}</p>
+                    {% endif %}
+
+                    {% with post.size.all as size %}
+                    {%if post.size.all %}
+                    <p class="border-bottom border-1">Размер животного:
+                        {% for s in size %}
+                        {% if not forloop.last %}
+                        {{s}},
+                        {% else %}
+                        {{s}}
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    {% endwith %}
+
+
+                    {% with post.age.all as age %}
+                    {%if post.age.all %}
+                    <p class="border-bottom border-1">Возраст:
+                        {% for a in age %}
+                        {% if not forloop.last %}
+                        {{a}},
+                        {% else %}
+                        {{a}}
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    {% endwith %}
+
+
+                    {%if post.price %}
+                    <p class="border-bottom border-1">Цена: {{post.price}}р</p>
+                    {% endif %}
+                </div>
+
+                <div class="d-grid gap-2 pt-3">
+                    <a class="btn btn-success btn-lg" href="tel:+73512613761" role="button">+7-351-261-37-61</a>
+                </div>
+            </div>
+            <div class="align-middle">
+                {% if post.content %}
+                <p class="pt-5" style="padding-left: 50px;">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Описание товара
+                    </button>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body" style="padding-left: 20px;">
+                        {{post.content|capfirst}}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}
